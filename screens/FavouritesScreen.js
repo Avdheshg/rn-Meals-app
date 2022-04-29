@@ -2,10 +2,10 @@
 
 import { View, Text, StyleSheet } from "react-native";
 
-const MealDetailScreen = () => {
+const FavouritesScreen = () => {
   return (
     <View style={styles.screen} >
-      <Text>Meal Detail Screen</Text>
+      <Text>Favourites Screen</Text>
     </View>
   );
 };
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default MealDetailScreen;
+export default FavouritesScreen;
 
 
 
