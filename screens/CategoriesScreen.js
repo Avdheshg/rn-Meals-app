@@ -16,7 +16,7 @@ import { CATEGORIES } from "../data/dummy-data";
 import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 // const CategoriesScreen = (props,{ navigation }) => {
-const CategoriesScreen = ({ navigation }) => {
+const CategoriesScreen = (props) => {
   // Generally V define all functions outside of Component (to make our Components as lean as possible). But here V R defining it inside. Why?  11
   const renderGridItem = (itemData) => {
     return (
@@ -29,7 +29,8 @@ const CategoriesScreen = ({ navigation }) => {
         }}
       >
         <View>
-          {/* {console.log(itemData.item.id)} */}
+          {/* {console.log(itemData.item.id)} */} 
+          <Text>I'm categories screen</Text>
           <Text  style={styles.cardText} >{itemData.item.title}</Text>
         </View>
       </TouchableOpacity>

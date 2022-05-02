@@ -7,29 +7,58 @@ import {
 } from "react-native";
 
 // const MealItem = ({ route, navigation }, props) => {
-const MealItem = ({ route, navigation }) => {
-    console.log("route: ", route);
+// const MealItem = ({ route, navigation }) => {
+// const MealItem = (props) => {
+//     // console.log("MealItem route: ", route);
+//   return (
+// // using props
+// <View style={styles.mealItem}>
+//   <TouchableOpacity onPress={props.onSelectMeal}>
+//   {/* <TouchableOpacity> */}
+//     <View>
+//       <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
+//         <ImageBackground
+//           source={{ uri: props.image }}
+//           style={styles.bgImage}
+//         >
+//           <View style={styles.titleContainer}>
+//             <Text style={styles.title} numberOfLines={1}>
+//               {props.title}
+//             </Text>
+//           </View>
+//         </ImageBackground>
+//       </View>
+//       <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
+//         <Text>{props.duration}m</Text>
+//         <Text>{props.complexity.toUpperCase()}</Text>
+//         <Text>{props.affordability.toUpperCase()}</Text>
+//       </View>
+//     </View>
+//   </TouchableOpacity>
+// </View>
+
+const MealItem = (props) => {
+  // console.log("MealItem route: " + route)
   return (
     <View style={styles.mealItem}>
-      {/* <TouchableOpacity onPress={props.onSelectMeal}> */}
-      <TouchableOpacity>
+      <TouchableOpacity onPress={props.onSelectMeal}>
         <View>
           <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
             <ImageBackground
-            //   source={{ uri: props.image }}
+              source={{ uri: props.image }}
               style={styles.bgImage}
             >
               <View style={styles.titleContainer}>
                 <Text style={styles.title} numberOfLines={1}>
-                  {/* {props.title} */}
+                  {props.title}
                 </Text>
               </View>
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            {/* <Text>{props.duration}m</Text> */}
-            {/* <Text>{props.complexity.toUpperCase()}</Text> */}
-            {/* <Text>{props.affordability.toUpperCase()}</Text> */}
+            <Text>{props.duration}m</Text>
+            <Text>{props.complexity.toUpperCase()}</Text>
+            <Text>{props.affordability.toUpperCase()}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -63,7 +92,7 @@ const styles = StyleSheet.create({
     height: "15%",
   },
   titleContainer: {
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(0,0,0,0.6)",
     paddingVertical: 5,
     paddingHorizontal: 12,
   },

@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import CategoriesScreen from "../screens/CategoriesScreen";
 import CategoryMealsScreen from "../screens/CategoryMealsScreen";
@@ -17,7 +18,9 @@ const Stack = createNativeStackNavigator();
 //     MealDetail: MealDetailScreen    
 // })
 
-const MealsNavigator = (props) => {
+// const MealsNavigator = (props) => {
+const MealsNavigator = ({route, navigation}) => {
+  // console.log("Meals Navigator: ", route)
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Categories">
@@ -25,7 +28,7 @@ const MealsNavigator = (props) => {
           name="Categories"
           component={CategoriesScreen}
           options={{
-            title: "Meal Categories",
+            title: "Categories Screen",
             headerStyle: {
               backgroundColor: Colors.primaryColor,
             },
@@ -36,7 +39,8 @@ const MealsNavigator = (props) => {
           name="Category Meals"
           component={CategoryMealsScreen}
           options={({ route }) => ({
-            title: route.params.name,
+            // title: route.params.name,
+            title: "Category Meals Screen",
             headerStyle: {
               backgroundColor: Colors.primaryColor
             },
@@ -51,5 +55,41 @@ const MealsNavigator = (props) => {
     </NavigationContainer>
   );
 };
+
+// bottom tab navigator
+const MealsFavTabNavigator = createBottomTabNavigator(
+  {
+    Meals: {
+      screen: MealsNavigator,
+      navigationOptions: {
+        tabBarIcon: tabInfo => {
+          return (
+            <Ionicons
+              name="ios-restaurant"
+              size={25}
+              color={tabInfo.tintColor}
+            />
+          );
+        }
+      }
+    },
+    Favorites: {
+      screen: FavoritesScreen,
+      navigationOptions: {
+        tabBarLabel: 'Favorites!',
+        tabBarIcon: tabInfo => {
+          return (
+            <Ionicons name="ios-star" size={25} color={tabInfo.tintColor} />
+          );
+        }
+      }
+    }
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: Colors.accentColor
+    }
+  }
+);
 
 export default MealsNavigator;
